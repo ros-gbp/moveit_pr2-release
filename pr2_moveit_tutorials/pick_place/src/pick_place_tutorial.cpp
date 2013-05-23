@@ -44,7 +44,7 @@
 
 static const std::string ROBOT_DESCRIPTION="robot_description";
 
-void pick(move_group_interface::MoveGroup &group)
+void pick(moveit::planning_interface::MoveGroup &group)
 {
   std::vector<manipulation_msgs::Grasp> grasps;
   
@@ -83,13 +83,13 @@ void pick(move_group_interface::MoveGroup &group)
   group.pick("part", grasps);
 }
 
-void place(move_group_interface::MoveGroup &group)
+void place(moveit::planning_interface::MoveGroup &group)
 {
   std::vector<manipulation_msgs::PlaceLocation> loc;
   
   geometry_msgs::PoseStamped p; 
   p.header.frame_id = "base_footprint";
-  p.pose.position.x = 0.42;
+  p.pose.position.x = 0.7;
   p.pose.position.y = 0.0;
   p.pose.position.z = 0.5;
   p.pose.orientation.x = 0;
@@ -147,7 +147,7 @@ int main(int argc, char **argv)
 
   ros::WallDuration(1.0).sleep();
   
-  move_group_interface::MoveGroup group("right_arm");
+  moveit::planning_interface::MoveGroup group("right_arm");
   group.setPlanningTime(45.0);
   
   moveit_msgs::CollisionObject co;
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
   co.primitive_poses[0].position.y = -0.4;  
   co.primitive_poses[0].position.z = 0.85;
   co.primitive_poses[0].orientation.w = 1.0;
-  //  pub_co.publish(co);
+  pub_co.publish(co);
 
 
   
