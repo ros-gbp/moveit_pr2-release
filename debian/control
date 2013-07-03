@@ -1,0 +1,12 @@
+Source: ros-hydro-pr2-moveit-tests
+Section: misc
+Priority: extra
+Maintainer: "sachinc <sachinc@willowgarage.com>"
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin, ros-hydro-fcl, ros-hydro-moveit-core, ros-hydro-moveit-ros-perception, ros-hydro-moveit-ros-planning, ros-hydro-octomap, ros-hydro-pluginlib
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-hydro-pr2-moveit-tests
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-fcl, ros-hydro-moveit-core, ros-hydro-moveit-ros-perception, ros-hydro-moveit-ros-planning, ros-hydro-octomap, ros-hydro-pluginlib
+Description: The pr2_moveit_tests package
