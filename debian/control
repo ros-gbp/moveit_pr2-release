@@ -1,0 +1,12 @@
+Source: ros-hydro-pr2-moveit-tutorials
+Section: misc
+Priority: extra
+Maintainer: "Ioan Sucan <isucan@willowgarage.com>"
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin, ros-hydro-interactive-markers, ros-hydro-moveit-core, ros-hydro-moveit-ros-perception, ros-hydro-moveit-ros-planning-interface, ros-hydro-pluginlib
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-hydro-pr2-moveit-tutorials
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-interactive-markers, ros-hydro-moveit-core, ros-hydro-moveit-ros-perception, ros-hydro-moveit-ros-planning-interface, ros-hydro-pluginlib
+Description: The pr2_moveit_tutorials package
