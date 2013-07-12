@@ -118,7 +118,7 @@ bool PR2ArmKinematicsPlugin::initialize(const std::string& robot_description,
     }
     ROS_DEBUG("PR2KinematicsPlugin::active for %s",group_name.c_str());
     active_ = true;
-  }    
+  }
   pr2_arm_ik_solver_->setFreeAngle(2);
   return active_;
 }
@@ -127,15 +127,15 @@ bool PR2ArmKinematicsPlugin::getPositionIK(const geometry_msgs::Pose &ik_pose,
                                            const std::vector<double> &ik_seed_state,
                                            std::vector<double> &solution,
                                            moveit_msgs::MoveItErrorCodes &error_code,
-                                           bool lock_redundant_joints) const
+                                           const kinematics::KinematicsQueryOptions &options) const
 {
   if(!active_)
   {
     ROS_ERROR("kinematics not active");
-    error_code.val = error_code.NO_IK_SOLUTION; 
+    error_code.val = error_code.NO_IK_SOLUTION;
     return false;
   }
-    
+
   KDL::Frame pose_desired;
   tf::poseMsgToKDL(ik_pose, pose_desired);
 
@@ -153,7 +153,7 @@ bool PR2ArmKinematicsPlugin::getPositionIK(const geometry_msgs::Pose &ik_pose,
                                                jnt_pos_out);
   if(ik_valid == pr2_arm_kinematics::NO_IK_SOLUTION)
   {
-    error_code.val = error_code.NO_IK_SOLUTION; 
+    error_code.val = error_code.NO_IK_SOLUTION;
     return false;
   }
 
@@ -169,8 +169,8 @@ bool PR2ArmKinematicsPlugin::getPositionIK(const geometry_msgs::Pose &ik_pose,
   }
   else
   {
-    ROS_DEBUG("An IK solution could not be found");   
-    error_code.val = error_code.NO_IK_SOLUTION; 
+    ROS_DEBUG("An IK solution could not be found");
+    error_code.val = error_code.NO_IK_SOLUTION;
     return false;
   }
 }
@@ -180,11 +180,11 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                               double timeout,
                                               std::vector<double> &solution,
                                               moveit_msgs::MoveItErrorCodes &error_code,
-                                              bool lock_redundant_joints) const
+                                              const kinematics::KinematicsQueryOptions &options) const
 {
-  static IKCallbackFn solution_callback = 0;  
-  static std::vector<double> consistency_limits;  
-  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);   
+  static IKCallbackFn solution_callback = 0;
+  static std::vector<double> consistency_limits;
+  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);
 }
 
 bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose,
@@ -193,10 +193,10 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                               const std::vector<double> &consistency_limits,
                                               std::vector<double> &solution,
                                               moveit_msgs::MoveItErrorCodes &error_code,
-                                              bool lock_redundant_joints) const
+                                              const kinematics::KinematicsQueryOptions &options) const
 {
-  static IKCallbackFn solution_callback = 0;  
-  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);   
+  static IKCallbackFn solution_callback = 0;
+  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);
 }
 
 bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose,
@@ -205,10 +205,10 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                               std::vector<double> &solution,
                                               const IKCallbackFn &solution_callback,
                                               moveit_msgs::MoveItErrorCodes &error_code,
-                                              bool lock_redundant_joints) const
+                                              const kinematics::KinematicsQueryOptions &options) const
 {
-  static std::vector<double> consistency_limits;  
-  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);  
+  static std::vector<double> consistency_limits;
+  return searchPositionIK(ik_pose, ik_seed_state, timeout, consistency_limits, solution, solution_callback, error_code);
 }
 
 bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose,
@@ -218,7 +218,7 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                               std::vector<double> &solution,
                                               const IKCallbackFn &solution_callback,
                                               moveit_msgs::MoveItErrorCodes &error_code,
-                                              bool lock_redundant_joints) const
+                                              const kinematics::KinematicsQueryOptions &options) const
 {
   if(!active_)
   {
@@ -228,8 +228,8 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
   }
   if(!consistency_limits.empty() && consistency_limits.size() != dimension_)
   {
-    ROS_ERROR("Consistency limits should be of size: %d",dimension_);    
-    error_code.val = error_code.FAILURE; 
+    ROS_ERROR("Consistency limits should be of size: %d",dimension_);
+    error_code.val = error_code.FAILURE;
     return false;
   }
 
@@ -253,9 +253,9 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                                    jnt_pos_out,
                                                    timeout,
                                                    error_code,
-                                                   solution_callback ? 
+                                                   solution_callback ?
                                                    boost::bind(solution_callback, _1, _2, _3):
-                                                   IKCallbackFn());      
+                                                   IKCallbackFn());
   }
   else
   {
@@ -265,9 +265,9 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
                                                    timeout,
                                                    consistency_limits[free_angle_],
                                                    error_code,
-                                                   solution_callback ? 
+                                                   solution_callback ?
                                                    boost::bind(solution_callback, _1, _2, _3):
-                                                   IKCallbackFn());    
+                                                   IKCallbackFn());
   }
 
   if(ik_valid == pr2_arm_kinematics::NO_IK_SOLUTION)
@@ -284,7 +284,7 @@ bool PR2ArmKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
   }
   else
   {
-    ROS_DEBUG("An IK solution could not be found");   
+    ROS_DEBUG("An IK solution could not be found");
     return false;
   }
 }
