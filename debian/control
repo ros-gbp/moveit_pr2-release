@@ -1,0 +1,12 @@
+Source: ros-hydro-pr2-moveit-config
+Section: misc
+Priority: extra
+Maintainer: "MoveIt Setup Assistant <assistant@moveit.ros.org>"
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin
+Homepage: http://moveit.ros.org/
+Standards-Version: 3.9.2
+
+Package: ros-hydro-pr2-moveit-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-joint-state-publisher, ros-hydro-moveit-ros-move-group, ros-hydro-pr2-description
+Description: An automatically generated package with all the configuration and launch files for using the pr2 with the MoveIt Motion Planning Framework
