@@ -1,0 +1,12 @@
+Source: ros-groovy-pr2-moveit-config
+Section: misc
+Priority: extra
+Maintainer: "MoveIt Setup Assistant <assistant@moveit.ros.org>"
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-catkin
+Homepage: http://moveit.ros.org/
+Standards-Version: 3.9.2
+
+Package: ros-groovy-pr2-moveit-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-moveit-ros-move-group
+Description: An automatically generated package with all the configuration and launch files for using the pr2 with the MoveIt Motion Planning Framework
