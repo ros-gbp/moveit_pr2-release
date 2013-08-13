@@ -1,0 +1,28 @@
+ros-hydro-pr2-moveit-plugins (0.5.2-0raring) raring; urgency=high
+
+  * make headers and author definitions aligned the same way; white space fixes
+  * changed joint for pr2 gripper
+  * fixes to gripper controller
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 12 Aug 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.1-0raring) raring; urgency=high
+
+  * remove hacks for groovy
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Sun, 14 Jul 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.0-0raring) raring; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Sun, 14 Jul 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.4.3-0raring) raring; urgency=high
+
+  * white space fixes (tabs are now spaces)
+  * adding options struct to kinematics base
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Thu, 11 Jul 2013 21:00:00 -0000
+
+
