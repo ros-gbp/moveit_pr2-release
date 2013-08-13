@@ -1,38 +1,38 @@
 /*********************************************************************
-* Software License Agreement (BSD License)
-*
-*  Copyright (c) 2012, Willow Garage, Inc.
-*  All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without
-*  modification, are permitted provided that the following conditions
-*  are met:
-*
-*   * Redistributions of source code must retain the above copyright
-*     notice, this list of conditions and the following disclaimer.
-*   * Redistributions in binary form must reproduce the above
-*     copyright notice, this list of conditions and the following
-*     disclaimer in the documentation and/or other materials provided
-*     with the distribution.
-*   * Neither the name of the Willow Garage nor the names of its
-*     contributors may be used to endorse or promote products derived
-*     from this software without specific prior written permission.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-*  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-*  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-*  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-*  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-*  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-*  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-*  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-*  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-*  POSSIBILITY OF SUCH DAMAGE.
-*********************************************************************/
+ * Software License Agreement (BSD License)
+ *
+ *  Copyright (c) 2012, Willow Garage, Inc.
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above
+ *     copyright notice, this list of conditions and the following
+ *     disclaimer in the documentation and/or other materials provided
+ *     with the distribution.
+ *   * Neither the name of Willow Garage nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ *  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ *  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ *  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ *  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ *********************************************************************/
 
-/* Author: Ioan Sucan, E. Gil Jones */
+/* Author: Ioan Sucan, Sachin Chitta, E. Gil Jones */
 
 #include <ros/ros.h>
 #include <moveit/controller_manager/controller_manager.h>
@@ -50,9 +50,23 @@
 namespace pr2_moveit_controller_manager
 {
 
+/// Maximum effort the PR2 gripper is allowed to exert (read as 'very large value'); this is PR2 specific
 static const double DEFAULT_MAX_GRIPPER_EFFORT = 10000.0;
+
+/// The distance between the PR2 gripper fingers when fully open (in m); this is PR2 specific
 static const double GRIPPER_OPEN = 0.086;
+
+/// The distance between the PR2 gripper fingers when fully closed (in m); this is PR2 specific
 static const double GRIPPER_CLOSED = 0.0;
+
+/// The name of the joint we expect input for to decide how to actuate the right gripper; this is PR2 specific
+static const std::string R_GRIPPER_JOINT = "r_gripper_motor_screw_joint";
+
+/// The name of the joint we expect input for to decide how to actuate the left gripper; this is PR2 specific
+static const std::string L_GRIPPER_JOINT = "l_gripper_motor_screw_joint";
+
+/// The conversion ratio that needs to be applied to get the gap opening of the gripper (m) based on the value of the motor joint actuating the gripper (PR2 specific)
+static const double GAP_CONVERSION_RATIO = 0.1714;
 
 template<typename T>
 class ActionBasedControllerHandle : public moveit_controller_manager::MoveItControllerHandle
@@ -160,34 +174,54 @@ public:
     if (trajectory.joint_trajectory.points.size() > 1)
       ROS_DEBUG("The PR2 gripper controller expects a joint trajectory with one point only, but %u provided. Using last point only.", (unsigned int)trajectory.joint_trajectory.points.size());
 
-    pr2_controllers_msgs::Pr2GripperCommandGoal goal;
-    goal.command.max_effort = DEFAULT_MAX_GRIPPER_EFFORT;
-
-    bool open = false;
-    for (std::size_t i = 0 ; i < trajectory.joint_trajectory.points.back().positions.size() ; ++i)
-      if (trajectory.joint_trajectory.points.back().positions[i] > 0.5)
+    int gripper_joint_index = -1;
+    for (std::size_t i = 0 ; i < trajectory.joint_trajectory.joint_names.size() ; ++i)
+      if (trajectory.joint_trajectory.joint_names[i] == R_GRIPPER_JOINT || trajectory.joint_trajectory.joint_names[i] == L_GRIPPER_JOINT)
       {
-    open = true;
+    gripper_joint_index = i;
     break;
       }
 
-    if (open)
+    if (!trajectory.joint_trajectory.joint_names.empty())
     {
-      goal.command.position = GRIPPER_OPEN;
-      closing_ = false;
-      ROS_DEBUG_STREAM("Sending gripper open command");
-    }
-    else
-    {
-      goal.command.position = GRIPPER_CLOSED;
-      closing_ = true;
-      ROS_DEBUG_STREAM("Sending gripper close command");
+      std::stringstream ss;
+      ss << std::endl;
+      for (std::size_t i = 0 ; i < trajectory.joint_trajectory.joint_names.size() ; ++i)
+        ss << "PR2 gripper trajectory (" << i << "): " << trajectory.joint_trajectory.joint_names[i] << " " << trajectory.joint_trajectory.points[0].positions[i] << std::endl;
+      ss << std::endl;
+      ROS_DEBUG("%s", ss.str().c_str());
     }
 
+    if (gripper_joint_index == -1)
+    {
+      ROS_ERROR("Could not find value for gripper virtual joint. Expected joint value for '%s' or '%s'.", L_GRIPPER_JOINT.c_str(), R_GRIPPER_JOINT.c_str());
+      return false;
+    }
+
+    double gap_opening = trajectory.joint_trajectory.points.back().positions[gripper_joint_index] * GAP_CONVERSION_RATIO;
+    ROS_DEBUG("PR2 gripper gap opening: %f", gap_opening);
+    closing_ = false;
+
+    if (gap_opening > GRIPPER_OPEN)
+    {
+      gap_opening = GRIPPER_OPEN;
+      closing_ = false;
+    }
+    else
+      if (gap_opening <= 0.0)
+      {
+        gap_opening = 0.0;
+        closing_ = true;
+      }
+
+    pr2_controllers_msgs::Pr2GripperCommandGoal goal;
+    goal.command.max_effort = DEFAULT_MAX_GRIPPER_EFFORT;
+
+    goal.command.position = gap_opening;
     controller_action_client_->sendGoal(goal,
-                    boost::bind(&Pr2GripperControllerHandle::controllerDoneCallback, this, _1, _2),
-                    boost::bind(&Pr2GripperControllerHandle::controllerActiveCallback, this),
-                    boost::bind(&Pr2GripperControllerHandle::controllerFeedbackCallback, this, _1));
+                                        boost::bind(&Pr2GripperControllerHandle::controllerDoneCallback, this, _1, _2),
+                                        boost::bind(&Pr2GripperControllerHandle::controllerActiveCallback, this),
+                                        boost::bind(&Pr2GripperControllerHandle::controllerFeedbackCallback, this, _1));
     done_ = false;
     last_exec_ = moveit_controller_manager::ExecutionStatus::RUNNING;
     return true;
@@ -242,9 +276,9 @@ public:
     control_msgs::FollowJointTrajectoryGoal goal;
     goal.trajectory = trajectory.joint_trajectory;
     controller_action_client_->sendGoal(goal,
-                    boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerDoneCallback, this, _1, _2),
-                    boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerActiveCallback, this),
-                    boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerFeedbackCallback, this, _1));
+                                        boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerDoneCallback, this, _1, _2),
+                                        boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerActiveCallback, this),
+                                        boost::bind(&Pr2FollowJointTrajectoryControllerHandle::controllerFeedbackCallback, this, _1));
     done_ = false;
     last_exec_ = moveit_controller_manager::ExecutionStatus::RUNNING;
     return true;
@@ -319,9 +353,12 @@ public:
                 {
                 }
               }
-          // 'ns' is the old name; use action_ns instead
+              // 'ns' is the old name; use action_ns instead
               if (controller_list[i].hasMember("ns"))
+              {
                 ci.ns_ = std::string(controller_list[i]["ns"]);
+                ROS_WARN("'ns' argument specified. Please use 'action_ns' instead.");
+              }
               if (controller_list[i].hasMember("action_ns"))
                 ci.ns_ = std::string(controller_list[i]["action_ns"]);
               if (controller_list[i]["joints"].getType() == XmlRpc::XmlRpcValue::TypeArray)
@@ -344,9 +381,9 @@ public:
     else
     {
       if (use_controller_manager_)
-    ROS_DEBUG_STREAM("No controller list specified. Using list obtained from the " << controller_manager_name_);
+        ROS_DEBUG_STREAM("No controller list specified. Using list obtained from the " << controller_manager_name_);
       else
-    ROS_ERROR_STREAM("Not using a controller manager and no controllers specified. There are no known controllers.");
+        ROS_ERROR_STREAM("Not using a controller manager and no controllers specified. There are no known controllers.");
     }
 
     if (use_controller_manager_)
@@ -354,7 +391,7 @@ public:
       static const unsigned int max_attempts = 5;
       unsigned int attempts = 0;
       while (ros::ok() && !ros::service::waitForService(controller_manager_name_ + "/list_controllers", ros::Duration(5.0)) && ++attempts < max_attempts)
-    ROS_INFO_STREAM("Waiting for service " << controller_manager_name_ + "/list_controllers" << " to come up");
+        ROS_INFO_STREAM("Waiting for service " << controller_manager_name_ + "/list_controllers" << " to come up");
 
       if (attempts < max_attempts)
         while (ros::ok() && !ros::service::waitForService(controller_manager_name_ + "/switch_controller", ros::Duration(5.0)) && ++attempts < max_attempts)
@@ -548,10 +585,10 @@ protected:
       static const ros::Duration max_cache_age(1.0);
       if ((ros::Time::now() - last_lister_response_) > max_cache_age)
       {
-    pr2_mechanism_msgs::ListControllers::Request req;
-    if (!lister_service_.call(req, cached_lister_response_))
-      ROS_WARN_STREAM("Something went wrong with lister service");
-    last_lister_response_ = ros::Time::now();
+        pr2_mechanism_msgs::ListControllers::Request req;
+        if (!lister_service_.call(req, cached_lister_response_))
+          ROS_WARN_STREAM("Something went wrong with lister service");
+        last_lister_response_ = ros::Time::now();
       }
     }
     return cached_lister_response_;
@@ -564,13 +601,13 @@ protected:
     {
       new_handle.reset(ns.empty() ? new Pr2GripperControllerHandle(name) : new Pr2GripperControllerHandle(name, ns));
       if (!static_cast<Pr2GripperControllerHandle*>(new_handle.get())->isConnected())
-    new_handle.reset();
+        new_handle.reset();
     }
     else
     {
       new_handle.reset(ns.empty() ? new Pr2FollowJointTrajectoryControllerHandle(name) : new Pr2FollowJointTrajectoryControllerHandle(name, ns));
       if (!static_cast<Pr2FollowJointTrajectoryControllerHandle*>(new_handle.get())->isConnected())
-    new_handle.reset();
+        new_handle.reset();
     }
     return new_handle;
   }
