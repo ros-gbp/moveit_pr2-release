@@ -1,3 +1,29 @@
+## moveit_pr2 - 0.5.3-0
+
+User `isucan@i7` released the packages in the `moveit_pr2` repository by running `/usr/local/bin/bloom-release -r hydro -t hydro moveit_pr2` on `Mon, 23 Sep 2013 12:04:19 -0000`
+
+These packages were released:
+- `moveit_pr2`
+- `pr2_moveit_config`
+- `pr2_moveit_plugins`
+- `pr2_moveit_tutorials`
+
+These packages were explicitly ignored:
+- `pr2_moveit_tests`
+
+Version of package(s) in repository `moveit_pr2`:
+- rosdistro version: `0.5.2-0`
+- old version: `0.5.2-0`
+- new version: `0.5.3-0`
+
+Versions of tools used:
+- bloom version: `0.4.4`
+- catkin_pkg version: `0.1.19`
+- rosdep version: `0.10.21`
+- rosdistro version: `0.2.14`
+- vcstools version: `0.1.31`
+
+
 ## moveit_pr2 - 0.5.2-0
 
 User `isucan@i7` released the packages in the `moveit_pr2` repository by running `/usr/local/bin/bloom-release moveit_pr2 --track hydro --ros-distro hydro` on `Tue, 13 Aug 2013 16:59:06 -0000`
