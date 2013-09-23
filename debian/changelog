@@ -1,0 +1,44 @@
+ros-hydro-pr2-moveit-config (0.5.3-0quantal) quantal; urgency=high
+
+  * enable more information output in demo mode
+  * keeping in sync with the setup assistant generated pkg
+  * add source param for joint_state_publisher
+  * use fake controllers for demo.launch
+  * use .xml suffix for included launch files
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Sun, 22 Sep 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.2-0quantal) quantal; urgency=high
+
+  * changing default object recognition behavior to listen on topic
+  * add debug flag to demo.launch
+  * add condition for starting mongodb as done in template
+  * update deps
+  * modified tabletop object recognition file to not trigger automatically
+  * lowering octomap resolution
+  * added ork config file
+  * new object recognition launch file
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Mon, 12 Aug 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.1-0quantal) quantal; urgency=high
+
+  * remove hacks for groovy
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Sun, 14 Jul 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.0-0quantal) quantal; urgency=high
+
+
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Sun, 14 Jul 2013 21:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.4.3-0quantal) quantal; urgency=high
+
+  * remove hardcoded path
+  * Tweaking pr2 settings
+  * Created launch file for Benchmark GUI
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Thu, 11 Jul 2013 21:00:00 -0000
+
+
