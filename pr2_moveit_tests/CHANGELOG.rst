@@ -2,6 +2,13 @@
 Changelog for package pr2_moveit_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.4 (2013-12-03)
+------------------
+* don't need to install this file
+* remove installation of launch files
+* fixing cmake files and launch file for tests
+* fixing broken tests for changes in robot_state
+
 0.5.3 (2013-09-23)
 ------------------
 
