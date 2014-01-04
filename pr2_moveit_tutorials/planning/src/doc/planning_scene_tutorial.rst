@@ -1,4 +1,4 @@
-Environment Representation/C++ API
+Planning Scene/C++ API
 ==================================
 The :planning_scene:`PlanningScene` class provides the main interface that you will use
 for collision checking and constraint checking. In this tutorial, we
@@ -16,7 +16,7 @@ Follow the `instructions for compiling code from source <http://moveit.ros.org/w
 
 The launch file
 ^^^^^^^^^^^^^^^
-The entire launch file is `here <https://github.com/ros-planning/moveit_pr2/blob/hydro-devel/pr2_moveit_tutorials/planning/launch/planning_tutorial.launch>`_ on github. All the code in this
+The entire launch file is `here <https://github.com/ros-planning/moveit_pr2/blob/hydro-devel/pr2_moveit_tutorials/planning/launch/planning_scene_tutorial.launch>`_ on github. All the code in this
 tutorial can be compiled and run from the pr2_moveit_tutorials package
 that you have as part of your MoveIt! setup.
 
@@ -25,7 +25,7 @@ Running the code
 
 Roslaunch the launch file to run the code directly from pr2_moveit_tutorials::
 
- roslaunch pr2_moveit_tutorials planning_tutorial.launch
+ roslaunch pr2_moveit_tutorials planning_scene_tutorial.launch
 
 Expected Output
 ^^^^^^^^^^^^^^^
@@ -50,3 +50,8 @@ joint values so some things may be different::
  [ INFO] [1385487628.880315077]: Test 9: Random state is not constrained
  [ INFO] [1385487628.880377445]: Test 10: Random state is feasible
  [ INFO] [1385487628.887157707]: Test 10: Random state is not valid
+
+Links
+=====
+
+ * Back to :moveit_website:`Moveit Tutorials <tutorials>`
