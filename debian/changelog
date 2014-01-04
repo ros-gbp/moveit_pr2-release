@@ -1,0 +1,57 @@
+ros-hydro-pr2-moveit-config (0.5.5-0precise) precise; urgency=high
+
+  * adding move group interface tutorial and sphinx docs
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Fri, 03 Jan 2014 08:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.4-0precise) precise; urgency=high
+
+  * fixing broken tests for changes in robot_state
+  * fix #26 <https://github.com/ros-planning/moveit_pr2/issues/26>.
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Tue, 03 Dec 2013 08:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.3-0precise) precise; urgency=high
+
+  * enable more information output in demo mode
+  * keeping in sync with the setup assistant generated pkg
+  * add source param for joint_state_publisher
+  * use fake controllers for demo.launch
+  * use .xml suffix for included launch files
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Mon, 23 Sep 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.2-0precise) precise; urgency=high
+
+  * changing default object recognition behavior to listen on topic
+  * add debug flag to demo.launch
+  * add condition for starting mongodb as done in template
+  * update deps
+  * modified tabletop object recognition file to not trigger automatically
+  * lowering octomap resolution
+  * added ork config file
+  * new object recognition launch file
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Tue, 13 Aug 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.1-0precise) precise; urgency=high
+
+  * remove hacks for groovy
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.5.0-0precise) precise; urgency=high
+
+
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-config (0.4.3-0precise) precise; urgency=high
+
+  * remove hardcoded path
+  * Tweaking pr2 settings
+  * Created launch file for Benchmark GUI
+
+ -- MoveIt Setup Assistant <assistant@moveit.ros.org>  Fri, 12 Jul 2013 07:00:00 -0000
+
+
