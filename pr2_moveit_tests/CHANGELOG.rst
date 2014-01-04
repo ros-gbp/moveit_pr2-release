@@ -2,6 +2,9 @@
 Changelog for package pr2_moveit_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.5 (2014-01-03)
+------------------
+
 0.5.4 (2013-12-03)
 ------------------
 * don't need to install this file
