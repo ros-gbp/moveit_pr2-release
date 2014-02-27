@@ -1,0 +1,51 @@
+ros-hydro-pr2-moveit-plugins (0.5.6-0quantal) quantal; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Thu, 27 Feb 2014 08:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.5-0quantal) quantal; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 03 Jan 2014 08:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.4-0quantal) quantal; urgency=high
+
+  * for some reason it seems the Eigen allocator is not called when constructing objects on stack (?); this fixes things for 32bit OS
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Tue, 03 Dec 2013 08:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.3-0quantal) quantal; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 23 Sep 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.2-0quantal) quantal; urgency=high
+
+  * make headers and author definitions aligned the same way; white space fixes
+  * fixes to gripper controller
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Tue, 13 Aug 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.1-0quantal) quantal; urgency=high
+
+  * remove hacks for groovy
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.5.0-0quantal) quantal; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-hydro-pr2-moveit-plugins (0.4.3-0quantal) quantal; urgency=high
+
+  * white space fixes (tabs are now spaces)
+  * adding options struct to kinematics base
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 12 Jul 2013 07:00:00 -0000
+
+
