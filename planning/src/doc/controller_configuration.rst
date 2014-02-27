@@ -47,7 +47,6 @@ FollowJointTrajectory Controller Interface
 The parameters are:
  * *name*: The name of the controller.  (See debugging information below for important notes).
  * *action_ns*: The action namespace for the controller. (See debugging information below for important notes). 
-Parameters specific to the Point cloud updater are:
  * *type*: The type of action being used (here FollowJointTrajectory).
  * *default*: The default controller is the primary controller chosen by MoveIt! for communicating with a particular set of joints.
  * *joints*: Names of all the joints that are being addressed by this interface.
@@ -57,7 +56,6 @@ GripperCommand Controller Interface
 The parameters are:
  * *name*: The name of the controller.  (See debugging information below for important notes).
  * *action_ns*: The action namespace for the controller. (See debugging information below for important notes). 
-Parameters specific to the Point cloud updater are:
  * *type*: The type of action being used (here GripperCommand).
  * *default*: The default controller is the primary controller chosen by MoveIt! for communicating with a particular set of joints.
  * *joints*: Names of all the joints that are being addressed by this interface.
@@ -86,13 +84,13 @@ Debugging Information
 ---------------------
 The ``FollowJointTrajectory`` or ``GripperCommand`` interfaces on your robot must be communicating in the namespace: ``\name\action_ns``. In the above example, you should be able to see the following topics (using *rostopic list*) on your robot:
 
- * /r_arm_controller/follow_joint_trajectory/command
+ * /r_arm_controller/follow_joint_trajectory/goal
  * /r_arm_controller/follow_joint_trajectory/feedback
  * /r_arm_controller/follow_joint_trajectory/result
- * /l_arm_controller/follow_joint_trajectory/command
+ * /l_arm_controller/follow_joint_trajectory/goal
  * /l_arm_controller/follow_joint_trajectory/feedback
  * /l_arm_controller/follow_joint_trajectory/result
- * /gripper_controller/gripper_action/command
+ * /gripper_controller/gripper_action/goal
  * /gripper_controller/gripper_action/feedback
  * /gripper_controller/gripper_action/result
 
