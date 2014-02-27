@@ -1,3 +1,29 @@
+## moveit_pr2 (hydro) - 0.5.6-0
+
+User `schitta@schitta-pc` released the packages in the `moveit_pr2` repository into the `hydro` distro by running `/usr/bin/bloom-release moveit_pr2 --track hydro --rosdistro hydro` on `Thu, 27 Feb 2014 23:02:59 -0000`
+
+These packages were released:
+- `moveit_pr2`
+- `pr2_moveit_config`
+- `pr2_moveit_plugins`
+- `pr2_moveit_tutorials`
+
+These packages were explicitly ignored:
+- `pr2_moveit_tests`
+
+Version of package(s) in repository `moveit_pr2`:
+- rosdistro version: `0.5.5-0`
+- old version: `0.5.5-0`
+- new version: `0.5.6-0`
+
+Versions of tools used:
+- bloom version: `0.5.1`
+- catkin_pkg version: `0.1.26`
+- rosdep version: `0.10.25`
+- rosdistro version: `0.3.4`
+- vcstools version: `0.1.33`
+
+
 ## moveit_pr2 - 0.5.5-0
 
 User `schitta@schitta-pc` released the packages in the `moveit_pr2` repository by running `/usr/bin/bloom-release moveit_pr2 --track hydro --rosdistro hydro` on `Sat, 04 Jan 2014 01:59:46 -0000`
