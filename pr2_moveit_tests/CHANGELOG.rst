@@ -2,6 +2,17 @@
 Changelog for package pr2_moveit_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.0 (2015-01-14)
+------------------
+* Moved include_directories(catkin_...) ahead of other calls.
+* Fix deprecated class loader call, renamed global variables to have _, cleaned up launch files
+* Contributors: Dave Coleman, Dave Hershberger
+
+0.5.7 (2014-03-23)
+------------------
+* update build system for ROS indigo
+* Contributors: Ioan Sucan
+
 0.5.6 (2014-02-27)
 ------------------
 * Refactored jacobian test.

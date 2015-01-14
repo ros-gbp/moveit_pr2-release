@@ -2,6 +2,17 @@
 Changelog for package pr2_moveit_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.0 (2015-01-14)
+------------------
+* Fixed launch file name in api_tutorial doc.
+* Added missing dependency on moveit_fake_controller_manager to tutorial.
+* Contributors: Dave Hershberger
+
+0.5.7 (2014-03-23)
+------------------
+* update build system for ROS indigo
+* Contributors: Ioan Sucan
+
 0.5.6 (2014-02-27)
 ------------------
 * Update controller_configuration.rst

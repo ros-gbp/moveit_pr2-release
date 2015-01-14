@@ -2,6 +2,14 @@
 Changelog for package pr2_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.0 (2015-01-14)
+------------------
+* deleted duplicate debug xml tag in launchfile
+* Contributors: arjungm
+
+0.5.7 (2014-03-23)
+------------------
+
 0.5.6 (2014-02-27)
 ------------------
 
