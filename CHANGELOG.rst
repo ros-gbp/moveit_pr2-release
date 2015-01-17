@@ -2,6 +2,11 @@
 Changelog for package pr2_moveit_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.1 (2015-01-16)
+------------------
+* update maintainer while debugging build errors
+* Contributors: Michael Ferguson
+
 0.6.0 (2015-01-14)
 ------------------
 * Fixed launch file name in api_tutorial doc.
