@@ -1,11 +1,12 @@
 <package>
   <name>moveit_pr2</name>
-  <version>0.6.0</version>
+  <version>0.6.1</version>
   <description>All PR2-specific packages for MoveIt</description>
   <author email="isucan@willowgarage.com">Ioan Sucan</author>
   <author email="sachinc@willowgarage.com">Sachin Chitta</author>
 
   <maintainer email="isucan@willowgarage.com">Ioan Sucan</maintainer>
+  <maintainer email="mferguson@fetchrobotics.com">Michael Ferguson</maintainer>
 
   <license>BSD</license>
 
