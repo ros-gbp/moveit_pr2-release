@@ -1,0 +1,68 @@
+ros-indigo-moveit-pr2 (0.6.1-0saucy) saucy; urgency=high
+
+  * update maintainer while debugging build errors
+  * Contributors: Michael Ferguson
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 16 Jan 2015 08:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.6.0-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Wed, 14 Jan 2015 08:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.7-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Sun, 23 Mar 2014 07:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.6-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Thu, 27 Feb 2014 08:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.5-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 03 Jan 2014 08:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.4-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Tue, 03 Dec 2013 08:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.3-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 23 Sep 2013 07:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.2-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Tue, 13 Aug 2013 07:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.1-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.5.0-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-indigo-moveit-pr2 (0.4.3-0saucy) saucy; urgency=high
+
+
+
+ -- Ioan Sucan <isucan@willowgarage.com>  Fri, 12 Jul 2013 07:00:00 -0000
+
+
