@@ -1,3 +1,31 @@
+## moveit_pr2 (indigo) - 0.6.1-0
+
+The packages in the `moveit_pr2` repository were released into the `indigo` distro by running `/usr/bin/bloom-release -t indigo -r indigo moveit_pr2` on `Sat, 17 Jan 2015 02:26:16 -0000`
+
+These packages were released:
+- `moveit_pr2`
+- `pr2_moveit_config`
+- `pr2_moveit_plugins`
+- `pr2_moveit_tutorials`
+
+These packages were explicitly ignored:
+- `pr2_moveit_tests`
+
+Version of package(s) in repository `moveit_pr2`:
+- upstream repository: https://github.com/ros-planning/moveit_pr2.git
+- release repository: https://github.com/ros-gbp/moveit_pr2-release.git
+- rosdistro version: `0.6.0-0`
+- old version: `0.6.0-0`
+- new version: `0.6.1-0`
+
+Versions of tools used:
+- bloom version: `0.5.16`
+- catkin_pkg version: `0.2.6`
+- rosdep version: `0.11.0`
+- rosdistro version: `0.4.0`
+- vcstools version: `0.1.36`
+
+
 ## moveit_pr2 (indigo) - 0.6.0-0
 
 The packages in the `moveit_pr2` repository were released into the `indigo` distro by running `/usr/bin/bloom-release -t indigo -r indigo moveit_pr2 --edit` on `Wed, 14 Jan 2015 20:25:43 -0000`
