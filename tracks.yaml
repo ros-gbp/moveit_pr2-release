@@ -52,11 +52,11 @@ tracks:
       :{release_inc}
     devel_branch: indigo-devel
     last_version: 0.6.1
-    name: upstream
+    name: moveit_pr2
     patches: null
     release_inc: '0'
     release_repo_url: git@github.com:ros-gbp/moveit_pr2-release.git
-    release_tag: :{version}
+    release_tag: 0.6.2
     ros_distro: indigo
     vcs_type: git
     vcs_uri: https://github.com/ros-planning/moveit_pr2.git
