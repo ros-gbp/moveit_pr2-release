@@ -2,6 +2,14 @@
 Changelog for package pr2_moveit_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.4 (2017-06-20)
+------------------
+* [enhance] Explicitly convert shared_ptr to bool for c++11 compatibility.
+* Contributors: Maarten de Vries
+
+0.6.3 (2016-06-24)
+------------------
+
 0.6.2 (2016-02-05)
 ------------------
 * Fix message dependencies.
