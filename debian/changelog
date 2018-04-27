@@ -1,0 +1,107 @@
+ros-kinetic-pr2-moveit-tests (0.7.0-1jessie) jessie; urgency=high
+
+  * pluginlib headers migration
+  * Migrate to format2
+  * Add Bence as maintainer
+  * Fix xacro warnings
+  * Fix test compilation
+  * Fix fcl and kdl dep names
+  * Contributors: Bence Magyar, Isaac I.Y. Saito
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 26 Apr 2018 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.6.4-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Mon, 19 Jun 2017 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.6.3-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 23 Jun 2016 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.6.2-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 05 Feb 2016 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.6.1-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 16 Jan 2015 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.6.0-1jessie) jessie; urgency=high
+
+  * Moved include_directories(catkin_...) ahead of other calls.
+  * Fix deprecated class loader call, renamed global variables to have _, cleaned up launch files
+  * Contributors: Dave Coleman, Dave Hershberger
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Wed, 14 Jan 2015 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.7-1jessie) jessie; urgency=high
+
+  * update build system for ROS indigo
+  * Contributors: Ioan Sucan
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 23 Mar 2014 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.6-1jessie) jessie; urgency=high
+
+  * Refactored jacobian test.
+  * Changed orocos_kdl import from a catkin component to regular package.
+  * Run tests in Travis builds.
+  * adding kdl ik solver tests back in
+  * Contributors: Dave Hershberger, Sachin Chitta
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 27 Feb 2014 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.5-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 03 Jan 2014 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.4-1jessie) jessie; urgency=high
+
+  * don't need to install this file
+  * remove installation of launch files
+  * fixing cmake files and launch file for tests
+  * fixing broken tests for changes in robot_state
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Tue, 03 Dec 2013 00:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.3-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 22 Sep 2013 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.2-1jessie) jessie; urgency=high
+
+  * make headers and author definitions aligned the same way; white space fixes
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Mon, 12 Aug 2013 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.1-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 14 Jul 2013 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.5.0-1jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 14 Jul 2013 23:00:00 -0000
+
+ros-kinetic-pr2-moveit-tests (0.4.3-1jessie) jessie; urgency=high
+
+  * white space fixes (tabs are now spaces)
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 11 Jul 2013 23:00:00 -0000
+
+
