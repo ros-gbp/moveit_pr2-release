@@ -2,8 +2,15 @@
 Changelog for package pr2_moveit_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.6.6 (2017-07-25)
+0.7.0 (2018-04-27)
 ------------------
+* pluginlib headers migration
+* Migrate to format2
+* Add Bence as maintainer
+* Fix xacro warnings
+* Fix test compilation
+* Fix fcl and kdl dep names
+* Contributors: Bence Magyar, Isaac I.Y. Saito
 
 0.6.4 (2017-06-20)
 ------------------
