@@ -1,0 +1,12 @@
+Source: ros-kinetic-pr2-moveit-plugins
+Section: misc
+Priority: extra
+Maintainer: Bence Magyar <bence.magyar.robotics@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-actionlib, ros-kinetic-angles, ros-kinetic-catkin, ros-kinetic-cmake-modules, ros-kinetic-control-msgs, ros-kinetic-eigen-conversions, ros-kinetic-kdl-parser, ros-kinetic-moveit-core, ros-kinetic-pluginlib, ros-kinetic-pr2-controllers-msgs, ros-kinetic-pr2-mechanism-msgs, ros-kinetic-roscpp, ros-kinetic-tf-conversions, ros-kinetic-urdf
+Homepage: http://moveit.ros.org
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-pr2-moveit-plugins
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-actionlib, ros-kinetic-angles, ros-kinetic-control-msgs, ros-kinetic-eigen-conversions, ros-kinetic-kdl-parser, ros-kinetic-moveit-core, ros-kinetic-pluginlib, ros-kinetic-pr2-controllers-msgs, ros-kinetic-pr2-mechanism-msgs, ros-kinetic-roscpp, ros-kinetic-tf-conversions, ros-kinetic-urdf
+Description: PR2 specific plugins for MoveIt
