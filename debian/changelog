@@ -1,0 +1,113 @@
+ros-kinetic-moveit-pr2 (0.7.0-2jessie) jessie; urgency=high
+
+  * Migrate to format2
+  * Add Bence as maintainer
+  * Remove moveit-tutorials dependency
+  * Contributors: Bence Magyar, Dave Coleman, Isaac I.Y. Saito
+  * [fix] Remove obsolete dependency on moveit-tutorials #92 <https://github.com/ros-planning/moveit_pr2/issues/92>
+  * Contributors: Dave Coleman
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 26 Apr 2018 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.6.4-2jessie) jessie; urgency=high
+
+  * [fix] Fix always showing init pose. (#89 <https://github.com/ros-planning/moveit_pr2/issues/89>)
+  * [capability] add arms_and_torso group
+  * [enhance] Explicitly convert shared_ptr to bool for c++11 compatibility.
+  * [enhance] allow to open pr2_moveit_config in setup_assistant
+  * Contributors: Maarten de Vries, Isaac I.Y. Saito, tarukosu, v4hn
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Mon, 19 Jun 2017 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.6.3-2jessie) jessie; urgency=high
+
+  * [doc] tutorial section for apply_planning_scene service, and some more updates.
+  * [feat] pr2_moveit_config: add additional capabilities
+  * [feat] rviz config: default to left_arm group
+    Otherwise the object inserted into the planning scene
+    in planning_scene_ros_api_tutorial is covered by
+    the interactive marker of the right_arm group.
+  * [feat] made jiggle_fraction parameter usable from outside
+  * [feat] add arms_and_torso group
+  * Contributors: v4hn, Tobias Fromm, tarukosu
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 23 Jun 2016 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.6.2-2jessie) jessie; urgency=high
+
+  * Convert deprecated shape_tools dependency to geometric_shapes
+  * Install move_group_python_interface_tutorial.py
+  * pr2_moveit_tutorials/package.xml add run_depends
+    on pr2 kinematics, moveit config, and moveit plugins
+  * Contributors: Ian McMahon, Steven Peters
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 05 Feb 2016 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.6.1-2jessie) jessie; urgency=high
+
+  * update maintainer while debugging build errors
+  * Contributors: Michael Ferguson
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 16 Jan 2015 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.6.0-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Wed, 14 Jan 2015 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.7-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 23 Mar 2014 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.6-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 27 Feb 2014 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.5-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Fri, 03 Jan 2014 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.4-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Tue, 03 Dec 2013 00:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.3-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 22 Sep 2013 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.2-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Mon, 12 Aug 2013 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.1-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 14 Jul 2013 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.5.0-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Sun, 14 Jul 2013 23:00:00 -0000
+
+ros-kinetic-moveit-pr2 (0.4.3-2jessie) jessie; urgency=high
+
+
+
+ -- Bence Magyar <bence.magyar.robotics@gmail.com>  Thu, 11 Jul 2013 23:00:00 -0000
+
+
