@@ -52,7 +52,8 @@
 
 #include <moveit_msgs/GetPositionFK.h>
 #include <moveit_msgs/GetPositionIK.h>
-#include <moveit_msgs/KinematicSolverInfo.h>
+#include <moveit_msgs/GetKinematicSolverInfo.h>
+
 
 using namespace angles;
 

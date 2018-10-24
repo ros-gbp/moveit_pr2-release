@@ -35,7 +35,7 @@
 /* Author: Ioan Sucan */
 
 #include <moveit/constraint_samplers/constraint_sampler_allocator.h>
-#include <pluginlib/class_list_macros.hpp>
+#include <pluginlib/class_list_macros.h>
 
 namespace pr2_constraint_sampler
 {

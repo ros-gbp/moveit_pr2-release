@@ -42,7 +42,7 @@
 #include <algorithm>
 #include <numeric>
 
-#include <pluginlib/class_list_macros.hpp>
+#include <pluginlib/class_list_macros.h>
 
 using namespace KDL;
 using namespace tf;

@@ -12,8 +12,7 @@
     <param name="robot_description_semantic" textfile="$(find pr2_jacobian_tests)/pr2.srdf" />
 
     <!-- test -->
-    <test test-name="pr2_jacobian_test"  pkg="pr2_moveit_tests" type="pr2_jacobian_test"  name="jacobian_test" time-limit="180" >
+    <test test-name="pr2_jacobian_test"  pkg="pr2_jacobian_tests" type="my_test"  name="my_test" time-limit="180" >
     </test>
 
 </launch>
-
