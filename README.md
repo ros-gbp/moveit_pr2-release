@@ -1,3 +1,32 @@
+## moveit_pr2 (kinetic) - 0.7.1-0
+
+The packages in the `moveit_pr2` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --track kinetic --rosdistro kinetic moveit_pr2` on `Sun, 31 Mar 2019 13:59:45 -0000`
+
+These packages were released:
+- `moveit_pr2`
+- `pr2_moveit_config`
+- `pr2_moveit_plugins`
+
+These packages were explicitly ignored:
+- `pr2_moveit_tests`
+
+Version of package(s) in repository `moveit_pr2`:
+
+- upstream repository: https://github.com/ros-planning/moveit_pr2.git
+- release repository: https://github.com/ros-gbp/moveit_pr2-release.git
+- rosdistro version: `0.7.0-2`
+- old version: `0.7.0-2`
+- new version: `0.7.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.7.2`
+- catkin_pkg version: `0.4.10`
+- rosdep version: `0.15.1`
+- rosdistro version: `0.7.2`
+- vcstools version: `0.1.40`
+
+
 ## moveit_pr2 (indigo) - 0.7.15-0
 
 The packages in the `moveit_pr2` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo moveit_pr2` on `Wed, 24 Oct 2018 22:44:38 -0000`
