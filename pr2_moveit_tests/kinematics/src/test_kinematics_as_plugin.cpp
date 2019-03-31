@@ -36,7 +36,7 @@
 
 #include <ros/ros.h>
 #include <gtest/gtest.h>
-#include <pluginlib/class_loader.h>
+#include <pluginlib/class_loader.hpp>
 
 // MoveIt!
 #include <moveit/kinematics_base/kinematics_base.h>
@@ -133,8 +133,8 @@ class MyTest
       error_code.val = error_code.PLANNING_FAILED;
   };
 
-  kinematics::KinematicsBasePtr kinematics_solver_;
-  boost::shared_ptr<pluginlib::ClassLoader<kinematics::KinematicsBase> > kinematics_loader_;
+  boost::shared_ptr<kinematics::KinematicsBase> kinematics_solver_;
+  std::shared_ptr<pluginlib::ClassLoader<kinematics::KinematicsBase> > kinematics_loader_;
 };
 
 MyTest my_test;
@@ -163,8 +163,8 @@ TEST(ArmIKPlugin, getFK)
 {
   rdf_loader::RDFLoader rdf_loader_;
   robot_model::RobotModelPtr kinematic_model;
-  const boost::shared_ptr<srdf::Model> &srdf = rdf_loader_.getSRDF();
-  const boost::shared_ptr<urdf::ModelInterface>& urdf_model = rdf_loader_.getURDF();
+  const srdf::ModelSharedPtr& srdf = rdf_loader_.getSRDF();
+  const urdf::ModelInterfaceSharedPtr& urdf_model = rdf_loader_.getURDF();
   kinematic_model.reset(new robot_model::RobotModel(urdf_model, srdf));
   robot_model::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup(my_test.kinematics_solver_->getGroupName());
 
@@ -200,8 +200,8 @@ TEST(ArmIKPlugin, searchIK)
 {
   rdf_loader::RDFLoader rdf_loader_;
   robot_model::RobotModelPtr kinematic_model;
-  const boost::shared_ptr<srdf::Model> &srdf_model = rdf_loader_.getSRDF();
-  const boost::shared_ptr<urdf::ModelInterface>& urdf_model = rdf_loader_.getURDF();
+  const srdf::ModelSharedPtr& srdf_model = rdf_loader_.getSRDF();
+  const urdf::ModelInterfaceSharedPtr& urdf_model = rdf_loader_.getURDF();
   kinematic_model.reset(new robot_model::RobotModel(urdf_model, srdf_model));
   robot_model::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup(my_test.kinematics_solver_->getGroupName());
 
@@ -269,8 +269,8 @@ TEST(ArmIKPlugin, searchIKWithCallbacks)
 {
   rdf_loader::RDFLoader rdf_loader_;
   robot_model::RobotModelPtr kinematic_model;
-  const boost::shared_ptr<srdf::Model> &srdf = rdf_loader_.getSRDF();
-  const boost::shared_ptr<urdf::ModelInterface>& urdf_model = rdf_loader_.getURDF();
+  const srdf::ModelSharedPtr& srdf = rdf_loader_.getSRDF();
+  const urdf::ModelInterfaceSharedPtr& urdf_model = rdf_loader_.getURDF();
   kinematic_model.reset(new robot_model::RobotModel(urdf_model, srdf));
   robot_model::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup(my_test.kinematics_solver_->getGroupName());
 

@@ -36,7 +36,7 @@
 
 #include <ros/ros.h>
 #include <gtest/gtest.h>
-#include <pluginlib/class_loader.h>
+#include <pluginlib/class_loader.hpp>
 
 // MoveIt!
 #include <moveit/kinematics_constraint_aware/kinematics_constraint_aware.h>
@@ -60,8 +60,8 @@ TEST(ConstraintAwareKinematics, getIK)
   robot_model_loader::RobotModelLoader robot_model_loader("robot_description"); /** Used to load the robot model */
   robot_model::RobotModelPtr kinematic_model = robot_model_loader.getModel();
 
-  const boost::shared_ptr<srdf::Model> &srdf = robot_model_loader.getSRDF();
-  const boost::shared_ptr<urdf::ModelInterface>& urdf_model = robot_model_loader.getURDF();
+  const srdf::ModelSharedPtr& srdf = robot_model_loader.getSRDF();
+  const urdf::ModelInterfaceSharedPtr& urdf_model = robot_model_loader.getURDF();
 
   planning_scene.reset(new planning_scene::PlanningScene(kinematic_model));
 

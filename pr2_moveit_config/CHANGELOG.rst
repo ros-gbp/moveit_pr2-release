@@ -2,13 +2,21 @@
 Changelog for package pr2_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.7.15 (2018-10-24)
--------------------
-* Package version aligning with a newly added moveit_full_pr2. This is needed for the release into rosdistro.
-* Contributors: Isaac I.Y. Saito
-
-0.6.6 (2017-07-25)
+0.7.1 (2019-03-31)
 ------------------
+
+0.7.0 (2018-04-27)
+------------------
+* Migrate to format2
+* Fix xacro warnings
+* [moveit.rviz] Fix always showing init pose. (`#89 <https://github.com/ros-planning/moveit_pr2/issues/89>`_)
+  Init pose would always be shown in addition to the current {start, goal} poses. This is useless and confusing.
+  Although only thing I did was to remove `RobotState` panel, and `save as` to overwrite the same `.rviz` file, there are some changes that seem unrelated. I do not know what happened but if some of those changes should be reverted let me know.
+* allow to open pr2_moveit_config in setup_assistant
+  The temp-file does not exist and the moveit_config
+  already run_depends on pr2_description anyway.
+* add arms_and_torso group
+* Contributors: Bence Magyar, Christian Dornhege, Isaac I.Y. Saito, tarukosu, v4hn
 
 0.6.4 (2017-06-20)
 ------------------
