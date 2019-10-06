@@ -1,0 +1,12 @@
+Source: ros-melodic-pr2-moveit-plugins
+Section: misc
+Priority: extra
+Maintainer: Bence Magyar <bence.magyar.robotics@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-actionlib, ros-melodic-angles, ros-melodic-catkin, ros-melodic-cmake-modules, ros-melodic-control-msgs, ros-melodic-eigen-conversions, ros-melodic-kdl-parser, ros-melodic-moveit-core, ros-melodic-pluginlib, ros-melodic-pr2-controllers-msgs, ros-melodic-pr2-mechanism-msgs, ros-melodic-rosconsole, ros-melodic-roscpp, ros-melodic-tf, ros-melodic-tf-conversions, ros-melodic-urdf
+Homepage: http://moveit.ros.org
+Standards-Version: 3.9.2
+
+Package: ros-melodic-pr2-moveit-plugins
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-actionlib, ros-melodic-angles, ros-melodic-control-msgs, ros-melodic-eigen-conversions, ros-melodic-kdl-parser, ros-melodic-moveit-core, ros-melodic-pluginlib, ros-melodic-pr2-controllers-msgs, ros-melodic-pr2-mechanism-msgs, ros-melodic-rosconsole, ros-melodic-roscpp, ros-melodic-tf, ros-melodic-tf-conversions, ros-melodic-urdf
+Description: PR2 specific plugins for MoveIt
